@@ -6,7 +6,8 @@ a=10
 while [ $a -ge 10 ]
 do
 	sleep 60
-	wget http://www.example.com/ 2> result.html
+	# To grep the STDERR output instead, replace > with 2>
+	wget http://www.example.com/ > result.html
 	if [ $(grep -c "Text to watch for" result.html) -ne 0 ]
 	then
 		echo "******GO GO GO!!******"
