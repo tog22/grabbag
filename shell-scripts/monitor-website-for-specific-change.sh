@@ -1,8 +1,6 @@
 #!/bin/bash
 # Uses Mac commands, which you can replace.
 
-a=10
-
 while [ true ]
 do
 	sleep 60
