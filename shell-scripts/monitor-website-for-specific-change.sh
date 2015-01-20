@@ -3,7 +3,7 @@
 
 a=10
 
-while [ $a -ge 10 ]
+while [ true ]
 do
 	sleep 60
 	# To grep the STDERR output instead, replace > with 2>
