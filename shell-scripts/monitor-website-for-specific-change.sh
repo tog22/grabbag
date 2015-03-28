@@ -1,15 +1,16 @@
 #!/bin/bash
 # Uses Mac commands, which you can replace.
+#
+# monitor-website-for-specific-change.sh <url> <thing to search for>
 
+wget -q --spider $1 || echo "URL not found"
 while [ true ]
 do
-	sleep 60
-	# To grep the STDERR output instead, replace > with 2>
-	wget http://www.example.com/ > result.html
-	if [ $(grep -c "Text to watch for" result.html) -ne 0 ]
-	then
-		echo "******GO GO GO!!******"
-		say "wake up! wake up! wake up! wake up!"
-		afplay ../media/alarm-startling.mp3  
-	fi
+        if wget -q -O- $1 | grep $2 >/dev/null
+        then
+                echo "******GO GO GO!!******"
+                say "Go! Go! Go!"
+                afplay ../media/alarm-startling.mp3
+        fi
+        sleep 6
 done
